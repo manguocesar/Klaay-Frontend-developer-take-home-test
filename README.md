@@ -4,7 +4,8 @@ The task is to use this code to create a chat application that uses the provided
 
 The goal is to have a friendly UX and UI experience when creating new conversations and writing and reading messages.
 
-We will review your code collaboratively during the technical interview.
+We will review your code collaboratively during the technical interview. 
+Please send us your code and instructions on running it at least the day before your interview.
 
 ## Requirements
 
