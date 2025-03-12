@@ -1,17 +1,17 @@
-# Klaay Frontend ddeveloper take-home test
+# Klaay Frontend developer take-home test
 
-The task is to use this code as a basis to make a chat application that uses the provided API.
+The task is to use this code to create a chat application that uses the provided API.
 
-The goal is to have a nice UX and UI experience when creating new conversations and writing and reading messages.
+The goal is to have a friendly UX and UI experience when creating new conversations and writing and reading messages.
 
-We will review your code collaboratively together with you at the technical interview.
+We will review your code collaboratively during the technical interview.
 
 ## Requirements
 
 - Use the provided API to fetch and send messages.
 - Display messages in a chat-like interface.
 - Each user can have multiple conversations.
-- Each user can only see their own conversations.
+- Each user can only see their conversations.
 - Your code must be tested.
 
 ## Delivery
