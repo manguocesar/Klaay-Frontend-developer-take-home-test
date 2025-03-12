@@ -33,8 +33,4 @@ Run the development server:
 npm run dev
 ```
 
-And access it on http://localhost:3000 and the API on http://localhost:3001
-
-## API
-
-You can view the API endpoints on http://localhost:3001/docs
+And access it on http://localhost:3000 and the API on http://localhost:3001/docs
