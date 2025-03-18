@@ -27,29 +27,17 @@ Install dependencies:
 ```bash
 npm install
 ```
-or
-```bash
-pnpm i
-```
 
 Run the development server:
 
 ```bash
 npm run dev
 ```
-or
-```bash
-pnpm dev
-```
 
 Run the automated tests:
 
 ```bash
 npm run test
-```
-or
-```bash
-pnpm test
 ```
 
 And access it on http://localhost:5173 and the API on http://localhost:3001/docs
