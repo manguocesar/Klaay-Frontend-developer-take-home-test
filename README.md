@@ -49,14 +49,14 @@ Two credentials are hardcoded in the backend:
 1. username: "user1" && password: "password1"
 2. username: "user2" && password: "password2"
 
-Users can log in with both credentials through the login form
-If credentials are incorrect, error messages show up
+- Users can log in with both credentials through the login form
+- If credentials are incorrect, error messages show up
 
 ### FUNCTIONALITIES
-To test the UX & responsiveness, using mobile & desktop screens is needed
-From both the mobile & desktop views, users can review their conversations & chats with other users
-From both the mobile & desktop views, users can create new conversations & send new messages
-An automatied answer is generated & fetched every 3 seconds after a message is sent out by the user
+- To test the UX & responsiveness, using mobile & desktop screens is needed
+- From both the mobile & desktop views, users can review their conversations & chats with other users
+- From both the mobile & desktop views, users can create new conversations & send new messages
+- An automatied answer is generated & fetched every 3 seconds after a message is sent out by the user
 
 ### LOGOUT
-Once several conversations have been created & several messages have been sent out on mobile & desktop views, the user can log out with the top left button to be redirected to the login page
+- Once several conversations have been created & several messages have been sent out on mobile & desktop views, the user can log out with the top left button to be redirected to the login page
