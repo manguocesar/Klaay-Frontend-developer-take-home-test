@@ -57,7 +57,7 @@ And access it on http://localhost:5173 and the API on http://localhost:3001/docs
 ## Instructions
 
 ### LOGIN
-Two users are hardcoded in the backend:
+Two credentials are hardcoded in the backend:
 1. username: "user1" && password: "password1"
 2. username: "user2" && password: "password2"
 
