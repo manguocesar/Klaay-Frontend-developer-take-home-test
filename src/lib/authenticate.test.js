@@ -48,13 +48,11 @@ describe('authenticate function', () => {
     });
 
     test('returns response data on successful authentication', async () => {
-        // Mock response data
         const mockResponseData = {
             meta: { token: mockToken },
             data: { id: '123', type: 'user' }
         };
 
-        // Setup mock response
         const mockResponse = {
             ok: true,
             json: jest.fn().mockResolvedValue(mockResponseData)
