@@ -21,4 +21,4 @@ const Conversations = () => {
     );
 };
 
-export { Conversations };
+export default Conversations;
