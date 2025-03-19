@@ -1,9 +1,10 @@
 import { useChatContext } from "../context/ChatContext";
 import { Chat } from "../types";
 
+const twoLastMessages = 2;
+
 const ConversationCard = ({ chat }: { chat: Chat }) => {
     const { selectedChatId, setSelectedChatId } = useChatContext();
-    const twoLastMessages = 2;
     const handleSelectConversation = (id: string) => {
         setSelectedChatId(id);
     };

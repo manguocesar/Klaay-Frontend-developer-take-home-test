@@ -52,6 +52,11 @@ const ConversationForm = () => {
                     placeholder="New Conversation Name..."
                     value={newChatName}
                     onChange={handleChange}
+                    onKeyUp={(e) => {
+                        if (e.key === 'Enter') {
+                            handleCreateConversation();
+                        }
+                    }}
                     className="text-center border-blue-500"
                 />
                 {error && (

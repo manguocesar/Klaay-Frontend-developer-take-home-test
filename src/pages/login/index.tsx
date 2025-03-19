@@ -16,10 +16,13 @@ import { useNavigate } from 'react-router';
 import { LoginFormValues, loginSchema } from '../../lib/zod';
 import { authenticate } from '../../lib/authenticate';
 import { useAuth } from '../../context/AuthContext';
+import { useState } from 'react';
+import { ErrorMessage } from '../../components/ErrorMessage';
 
 const Login = () => {
     const navigate = useNavigate();
     const { addAuthToken } = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
 
     const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
@@ -39,8 +42,12 @@ const Login = () => {
             }
         },
         onError: (error) => {
-            form.setError('username', { message: error.message });
-            form.setError('password', { message: error.message });
+            // Set different error messages for each field
+            if (error.message.includes("username")) {
+                form.setError('username', { message: error.message });
+            } else {
+                form.setError('password', { message: error.message });
+            }
         }
     });
 
@@ -70,9 +77,10 @@ const Login = () => {
                                             placeholder="Enter your username"
                                             {...field}
                                             className="mt-1 lg:text-xl"
+                                            aria-describedby="username-error" // Link error message
                                         />
                                     </FormControl>
-                                    <FormMessage />
+                                    <FormMessage id="username-error" />
                                 </FormItem>
                             )}
                         />
@@ -84,23 +92,33 @@ const Login = () => {
                                 <FormItem>
                                     <FormLabel className='lg:text-2xl'>Password</FormLabel>
                                     <FormControl>
-                                        <Input
-                                            aria-label="Password"
-                                            aria-invalid={!!form.formState.errors.password}
-                                            type="password"
-                                            placeholder="••••••••"
-                                            {...field}
-                                            className="mt-1  lg:text-xl"
-                                        />
+                                        <div className="relative">
+                                            <Input
+                                                aria-label="Password"
+                                                aria-invalid={!!form.formState.errors.password}
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="••••••••"
+                                                {...field}
+                                                className="mt-1 lg:text-xl"
+                                                aria-describedby="password-error" // Link error message
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                                            >
+                                                {showPassword ? "Hide" : "Show"}
+                                            </button>
+                                        </div>
                                     </FormControl>
-                                    <FormMessage />
+                                    <FormMessage id="password-error" />
                                 </FormItem>
                             )}
                         />
 
                         <Button
                             type="submit"
-                            className="w-full flex justify-center py-2  lg:text-xl"
+                            className="w-full flex justify-center py-2 lg:text-xl"
                             disabled={mutation.isPending}
                         >
                             {mutation.isPending ? (
@@ -112,6 +130,10 @@ const Login = () => {
                                 'Sign in'
                             )}
                         </Button>
+
+                        {mutation.isError && (
+                            <ErrorMessage className="mt-2" message={mutation.error.message} />
+                        )}
                     </form>
                 </Form>
             </div>
@@ -119,4 +141,4 @@ const Login = () => {
     );
 };
 
-export { Login };
+export default Login;

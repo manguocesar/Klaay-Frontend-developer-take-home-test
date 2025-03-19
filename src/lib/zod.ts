@@ -16,5 +16,5 @@ export const loginSchema = z.object({
 });
 
 export const conversationSchema = z.object({
-  name: z.string().min(3, "Conversation must have at least 3 characters"),
+  name: z.string().min(3, "At least 3 characters long"),
 });

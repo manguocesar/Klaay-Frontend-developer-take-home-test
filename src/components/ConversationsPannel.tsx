@@ -5,6 +5,7 @@ import { Loader2 } from "lucide-react";
 import { getConversations } from "../lib/useConversation";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../context/AuthContext";
+import { ErrorMessage } from "./ErrorMessage";
 
 const ConversationsPannel = () => {
     const { token } = useAuth();
@@ -15,6 +16,7 @@ const ConversationsPannel = () => {
     } = useQuery<Chat[]>({
         queryKey: ['conversations'],
         queryFn: () => getConversations(token || ''),
+        enabled: !!token,
     });
 
     if (conversationsLoading) {
@@ -22,7 +24,7 @@ const ConversationsPannel = () => {
     }
 
     if (conversationsError) {
-        return <div className="text-red-500 text-center">Error loading conversations</div>;
+        return <ErrorMessage message="Error loading conversations" />;
     }
 
     return (
