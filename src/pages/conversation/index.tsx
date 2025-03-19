@@ -12,7 +12,7 @@ const Conversations = () => {
 
     const conversationsPanelClassNames = useMemo(() => {
         return clsx(
-            'w-screen p-4 md:py-0 border-r border-gray-200 h-full md:h-auto',
+            'w-screen md:w-5/12 p-4 md:py-0 border-r border-gray-200 h-full md:h-auto',
             {
                 'hidden md:block': selectedChatId,  // Hide on desktop when chat is selected
                 'block': !selectedChatId,           // Show on mobile and desktop when no chat is selected
@@ -22,7 +22,7 @@ const Conversations = () => {
 
     const chatPanelClassNames = useMemo(() => {
         return clsx(
-            'overflow-scroll md:px-4',
+            'overflow-scroll md:px-4 md:w-full',
             {
                 'hidden md:block': !selectedChatId,  // Hide on desktop when no chat is selected
                 'block h-[75vh] md:h-[85vh]': selectedChatId,  // Show on mobile and desktop when a chat is selected
