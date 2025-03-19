@@ -7,6 +7,7 @@ import { Chat } from '../../types';
 import { MessageForm } from '../MessageForm';
 import { ChatHeader } from '../ChatHeader';
 import { MessagesContainer } from '../MessagesContainer';
+import { ErrorMessage } from '../ErrorMessage';
 
 const ChatPanel = () => {
     const { selectedChatId } = useChatContext();
@@ -40,7 +41,7 @@ const ChatPanel = () => {
     }
 
     if (chatError || !selectedChat) {
-        return <div className="text-red-500 text-center">{chatError instanceof Error ? `Error: ${chatError.message}` : "Error loading chat"}</div>;
+        return <ErrorMessage message={chatError instanceof Error ? `Error: ${chatError.message}` : "Error loading chat"} />;
     }
 
     return (
