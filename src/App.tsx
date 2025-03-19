@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { FC, lazy, Suspense } from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router';
 import { Header } from './components/Header';
@@ -7,11 +7,11 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { useAuth } from './context/AuthContext';
 import { ChatProvider } from './context/ChatContext';
 
-const Login = React.lazy(() => import('./pages/login'));
-const Conversations = React.lazy(() => import('./pages/conversation'));
-const ErrorPage = React.lazy(() => import('./pages/ErrorPage'));
+const Login = lazy(() => import('./pages/login'));
+const Conversations = lazy(() => import('./pages/conversation'));
+const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-const App: React.FC = () => {
+const App: FC = () => {
   const { token } = useAuth();
 
   return (
